@@ -5,8 +5,40 @@
 */
 
 :root.theme-light {
+  --Image-theme: url("../images/cover-image-light.png");
+  --main-color: #FFF1F7;
+  --accent-color: #FF8DCB;
+  --section-title-color: #353430;
+  --title-color:#353430;
+  --text-color: #353430;
+  --focus-color: #FFC2E6;
   /* сохраните этот селектор в приведённом виде.
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
   */
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+  --Image-theme: url("../images/cover-image-light.png");
+  --main-color: #FFF1F7;
+  --accent-color: #FF8DCB;
+  --section-title-color: #353430;
+  --title-color:#353430;
+  --text-color: #353430;
+  --focus-color: #FFC2E6;
+  }
+  .theme-auto .header__theme-menu-button:hover {
+  border: 1px solid rgb(53 52 48/0.5);
+  }
+  .theme-auto .decorated-zone-elements {
+  display: none;
+  }
+}
+
+.theme-light .decorated-zone-elements {
+  display: none;
+}
+.theme-light .header__theme-menu-button:hover {
+  border: 1px solid rgb(53 52 48/0.5);
 }
