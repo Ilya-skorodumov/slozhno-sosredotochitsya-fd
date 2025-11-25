@@ -8,7 +8,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: "IBM Plex mono", sans-serif;
+  font-family: "IBM Plex mono", monospace;
   font-weight: 400;
   font-size: 18px;
   line-height: 23.4px;
@@ -23,13 +23,13 @@
   padding: 20px;
 }
 
-@media (width <= 800px) {
+@media (width <= 1024px) {
   .header {
     min-block-size: max(1024px, 100vh);
   }
 }
 
-@media (width <= 450px) {
+@media (width <= 767px) {
   .header {
     min-block-size: max(668px, 100vh);
     padding: 10px;
@@ -81,7 +81,7 @@
   box-shadow: 0 0 5px 3px var(--accent-color);
 }
 
-@media (width <= 450px) {
+@media (width <= 767px) {
   .decorated-zone-elements {
     top: 10px;
     right: 38px;
@@ -110,7 +110,7 @@
   justify-content: center;
 }
 
-@media (width <= 800px) {
+@media (width <= 1024px) {
   .header__theme-menu {
     justify-content: flex-end;
     padding-top: 114px;
@@ -121,13 +121,14 @@
   }
 }
 
-@media (width <= 450px) {
+@media (width <= 767px) {
   .header__theme-menu {
     padding-top: 15px;
   }
 }
 
 .header__theme-menu-button {
+  text-transform: lowercase;
   font-weight: 400;
   font-size: 18px;
   line-height: 18px;
@@ -136,6 +137,8 @@
   background-color: transparent;
   border: none;
   padding: 2.3px 13px;
+  border: 1px solid transparent;
+  transition: border 0.4s;
 }
 
 .header__theme-menu-button:hover {
@@ -157,7 +160,7 @@
   align-self: center;
 }
 
-@media (width <= 800px) {
+@media (width <= 1024px) {
   .header__focus {
     padding-top: 2px;
   }
@@ -171,7 +174,7 @@
   text-shadow: 4px 4px var(--accent-color);
 }
 
-@media (width <= 450px) {
+@media (width <= 767px) {
   .header__focus {
     margin: 0;
     padding-top: 0;
@@ -181,63 +184,62 @@
   }
 }
 
-.header__title {
+.header__paragraph {
   max-inline-size: clamp(355px, calc(50vw - 20px), 491px);
   justify-self: right;
   align-self: center;
   background-color: var(--accent-color);
-  color: var(--title-color);
   margin-bottom: 60px;
 }
 
-@media (width <= 800px) {
-  .header__title {
+@media (width <= 1024px) {
+  .header__paragraph {
     margin-bottom: 113px;
   }
 }
 
-@media (width <= 450px) {
-  .header__title {
+@media (width <= 767px) {
+  .header__paragraph {
     margin-bottom: 15px;
   }
 }
 
-.title-decor {
+.header__paragraph-text {
   font-weight: 700;
   font-size: 18px;
   line-height: 23.4px;
+  color: var(--title-color);
 }
 
 .main {
-  background-color: var(--main-color);
   display: flex;
   flex-direction: column;
   gap: 80px;
   padding: 60px 20px;
 }
 
-@media (width <= 450px) {
+@media (width <= 767px) {
   .main {
     gap: 49px;
     padding: 40px 10px;
   }
 }
 
-.section {
+.content-section {
   display: grid;
   grid-template-columns: 0.97fr 2fr;
   grid-template-rows: min-content;
   gap: 20px;
 }
 
-@media (width <= 800px) {
-  .section {
+@media (width <= 1024px) {
+  .content-section {
     grid-template-columns: 1fr 2fr;
   }
 }
 
-@media (width <= 450px) {
-  .section {
+@media (width <= 767px) {
+  .content-section {
     display: flex;
     flex-direction: column;
   }
@@ -287,37 +289,32 @@
   outline: 1px solid var(--text-color);
 }
 
-.warn {
-  display: grid;
+.section-causes {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: min-content 1fr;
-  gap: 20px;
+  grid-auto-flow: row;
 }
 
-@media (width <= 450px) {
-  .warn {
-    display: flex;
-    flex-direction: column;
+.section-causes_title {
+  grid-row: 1;
+  grid-column: span 3;
+  max-inline-size: calc(34vw - 40px);
+}
+
+@media (width <= 767px) {
+  .section-causes_title {
+    max-inline-size: none;
   }
 }
 
-.warn_title {
-  grid-row: 1;
-  grid-column: 1;
-}
-
-.card_warn {
-  grid-row: 2;
-}
-
-@media (width <= 800px) {
-  .card_warn {
+@media (width <= 1024px) {
+  .card_section-causes {
     grid-row: auto;
     grid-column: span 3;
   }
 }
 
-.recommendations__title {
+.section-advices__title {
   font-weight: 400;
   font-size: 18px;
   line-height: 23.4px;
@@ -336,7 +333,6 @@
 }
 
 .сollage-area {
-  max-inline-size: 100vw;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
@@ -346,7 +342,7 @@
   gap: 20px;
 }
 
-@media (width <= 450px) {
+@media (width <= 767px) {
   .сollage-title {
     margin-bottom: 10px;
   }
@@ -385,13 +381,13 @@
   align-items: center;
 }
 
-@media (width <= 800px) {
+@media (width <= 1024px) {
   .footer {
     min-block-size: max(1024px, 100vh);
   }
 }
 
-@media (width <= 450px) {
+@media (width <= 767px) {
   .footer {
     min-block-size: max(668px, 100vh);
   }
